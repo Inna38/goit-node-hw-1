@@ -1,7 +1,7 @@
-const contacts = require("./db/contacts.json")
 
-
+ 
 function listContacts() {
+  
   // ...твій код. Повертає масив контактів.
 }
 
@@ -18,8 +18,9 @@ function addContact(name, email, phone) {
 }
 
 
-
-listContacts()
-getContactById()
-removeContact()
-addContact()
+module.exports = {
+  listContacts,
+  getContactById,
+  removeContact,
+  addContact
+}
