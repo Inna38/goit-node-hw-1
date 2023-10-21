@@ -1,6 +1,6 @@
 # goit-node-hw-1
 1.action="list"
-https://ibb.co/w4ZKP8b
+https://ibb.co/jyHRWW3
 
 2.action="get"
 https://ibb.co/7GR0mkC
