@@ -13,7 +13,7 @@ async function invokeAction({ action, id, name, email, phone }) {
       return console.log(getId);
 
     case "add":
-      const addContact = await contacts.addContact({ name, email, phone });
+      const addContact = await contacts.addContact(name, email, phone );
       return console.log(addContact);
 
     case "remove":
@@ -39,5 +39,5 @@ invokeAction(argv);
 
 //invokeAction({ action: "list"})
 // invokeAction({ action: "get", id: "05olLMgyVQdWRwgKfg5J6" })
-//  invokeAction({ action: "add", name: "Mango", email: "mango@gmail.com", phone: "322-22-22" })
+//invokeAction({ action: "add", name: "Mango", email: "mango@gmail.com", phone: "322-22-22" })
 //invokeAction({action: "remove", id: "qdggE76Jtbfd9eWJHrssH"})

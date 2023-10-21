@@ -16,14 +16,16 @@ async function getContactById(contactId) {
   return contacts || null;
 }
 
-async function addContact(obj) {
+async function addContact(name, email, phone) {
   const contacts = await listContacts();
   const newContact = {
     id: nanoid(),
-    ...obj,
+    name,
+    email,
+    phone,
   };
   contacts.push(newContact);
-  // await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 2));
+  await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 2));
   return newContact;
 }
 
@@ -31,8 +33,11 @@ async function removeContact(contactId) {
   const getContacts = await listContacts();
   const index = getContacts.findIndex(({ id }) => id === contactId);
   const remove = getContacts.splice(index, 1);
-  //await fs.writeFile(contactsPath, JSON.stringify(getContacts, null, 2))
-  return remove || null;
+  await fs.writeFile(contactsPath, JSON.stringify(getContacts, null, 2))
+  if (index === -1) {
+    return null
+  }
+  return remove;
 }
 module.exports = {
   listContacts,
